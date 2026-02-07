@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gyatt_osc/main/home_page.dart';
 import 'package:gyatt_osc/tutorial/buttons_controls_page.dart';
 import 'package:gyatt_osc/tutorial/container_page.dart';
 import 'package:gyatt_osc/tutorial/row_column_page.dart';
@@ -16,13 +17,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: const MainScreen(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class MainScreen extends StatelessWidget {
+  const MainScreen({super.key});
 
   Widget navButton(BuildContext context, String title, Widget page) {
     return Padding(
@@ -31,7 +32,7 @@ class HomeScreen extends StatelessWidget {
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (_) => page));
         },
-        child: Text(title),
+        child: Text(title, style: const TextStyle(fontSize: 16)),
       ),
     );
   }
@@ -69,6 +70,8 @@ class HomeScreen extends StatelessWidget {
             ),
 
             navButton(context, 'Row & Column Widgets', const RowColumnPage()),
+
+            navButton(context, 'Demo App', const MovieScreen()),
           ],
         ),
       ),
