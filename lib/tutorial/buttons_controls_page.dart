@@ -72,27 +72,19 @@ class _ButtonsControlsPageState extends State<ButtonsControlsPage> {
               'Radio Buttons',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            RadioListTile(
-              title: const Text('Option 1'),
-              value: 1,
-              groupValue: selectedRadio,
-              onChanged: (value) {
-                setState(() {
-                  selectedRadio = value!;
-                });
-              },
-            ),
-            RadioListTile(
-              title: const Text('Option 2'),
-              value: 2,
-              groupValue: selectedRadio,
-              onChanged: (value) {
-                setState(() {
-                  selectedRadio = value!;
-                });
-              },
-            ),
 
+            RadioGroup<int>(
+              groupValue: selectedRadio,
+              onChanged: (value) {
+                setState(() {
+                  selectedRadio = value!;
+                });
+              },
+              child: Column(
+                children: [Radio<int>(value: 1), Radio<int>(value: 2)],
+              ),
+            ),
+            
             const Divider(height: 32),
 
             const Text(
